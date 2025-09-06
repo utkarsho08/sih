@@ -7,8 +7,11 @@ import InternshipPage from "./pages/InternshipPage";
 
 function App() {
   return (
-    <div className="bg-gray-900 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-[#333]">
+      {/* Navbar */}
       <Navbar />
+
+      {/* Page Content */}
       <div className="p-6">
         <Routes>
           <Route path="/" element={<Home />} />
