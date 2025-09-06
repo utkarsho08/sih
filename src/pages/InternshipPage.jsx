@@ -41,11 +41,19 @@ function InternshipPage() {
     return (
         <div className="max-w-6xl mx-auto px-6 py-10">
             <h1 className="text-3xl font-bold text-[#766ABB] mb-8 text-center">
+<<<<<<< HEAD
                 AI Recommended Internships
+=======
+                Available Internships
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
             </h1>
 
             {/* Filters Section */}
             <div className="bg-white text-gray-800 p-6 rounded-lg shadow-md mb-8 flex flex-col md:flex-row md:items-center md:space-x-6 space-y-4 md:space-y-0">
+<<<<<<< HEAD
+=======
+                {/* Location Filter */}
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
                 <input
                     type="text"
                     placeholder="Filter by Location"
@@ -54,6 +62,10 @@ function InternshipPage() {
                     className="border border-gray-300 rounded-lg px-4 py-2 w-full md:w-1/3"
                 />
 
+<<<<<<< HEAD
+=======
+                {/* Category Filter */}
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
                 <select
                     value={filters.category}
                     onChange={(e) => setFilters({ ...filters, category: e.target.value })}
@@ -73,6 +85,10 @@ function InternshipPage() {
                     <option value="Others">Others</option>
                 </select>
 
+<<<<<<< HEAD
+=======
+                {/* Stipend Filter */}
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
                 <input
                     type="number"
                     placeholder="Min Stipend (₹)"
@@ -96,6 +112,7 @@ function InternshipPage() {
                         <p className="text-sm text-gray-600">{internship.location}</p>
                         <p className="text-sm text-gray-500">{internship.category}</p>
 
+<<<<<<< HEAD
                         {/* ✅ Styled stipend + duration */}
                         <div className="mt-4 flex flex-wrap gap-2">
                             <span className="inline-block bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full">
@@ -104,6 +121,15 @@ function InternshipPage() {
                             <span className="inline-block bg-blue-100 text-blue-700 text-sm font-medium px-3 py-1 rounded-full">
                                 {internship.duration}
                             </span>
+=======
+                        <div className="mt-4 text-sm">
+                            <p>
+                                <span className="font-semibold">Stipend:</span> ₹{internship.stipend}
+                            </p>
+                            <p>
+                                <span className="font-semibold">Duration:</span> {internship.duration}
+                            </p>
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
                         </div>
 
                         <button className="mt-6 w-full bg-[#766ABB] text-white py-2 rounded-lg font-semibold hover:bg-[#5a4a99] transition">
@@ -116,4 +142,8 @@ function InternshipPage() {
     );
 }
 
+<<<<<<< HEAD
 export default InternshipPage;
+=======
+export default InternshipPage;
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)

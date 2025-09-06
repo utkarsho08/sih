@@ -2,10 +2,15 @@ import { useState } from "react";
 
 function FormPage() {
     const [form, setForm] = useState({
+<<<<<<< HEAD
         fullName: "",
         email: "",
         phone: "",
         address: "",
+=======
+        email: "",
+        phone: "",
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
         education: "",
         skills: "",
         experience: "",
@@ -19,12 +24,17 @@ function FormPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         localStorage.setItem("resumeData", JSON.stringify(form));
+<<<<<<< HEAD
         alert("✅ Resume details saved! Now go to Preview Resume page.");
+=======
+        alert("✅ Resume details saved!");
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
     };
 
     return (
         <div className="max-w-3xl mx-auto bg-white text-gray-800 p-8 rounded-lg shadow-lg">
             <h1 className="text-3xl font-bold mb-6 text-center text-[#766ABB]">
+<<<<<<< HEAD
                 📝 Create Your Resume
             </h1>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -83,6 +93,12 @@ function FormPage() {
                     />
                 </div>
 
+=======
+                Upload Your Info
+            </h1>
+            <form onSubmit={handleSubmit} className="space-y-6">
+
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
                 {/* Education */}
                 <div>
                     <label className="block font-semibold mb-2">Education *</label>
@@ -109,7 +125,11 @@ function FormPage() {
                         name="skills"
                         value={form.skills}
                         onChange={handleChange}
+<<<<<<< HEAD
                         placeholder="e.g. MS Word, Typing, Driving, Cooking"
+=======
+                        placeholder="e.g. MS Word, Typing, Programming, etc."
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
                         required
                         className="w-full border border-gray-300 rounded-lg p-3"
                     />
@@ -122,10 +142,43 @@ function FormPage() {
                         name="experience"
                         value={form.experience}
                         onChange={handleChange}
+<<<<<<< HEAD
                         placeholder="e.g. 2 years as Shop Assistant"
                         className="w-full border border-gray-300 rounded-lg p-3"
                     />
                 </div>
+=======
+                        placeholder="e.g. 2 years as an Apprentice"
+                        className="w-full border border-gray-300 rounded-lg p-3"
+                    />
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label className="block font-semibold mb-2">Email *</label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            placeholder="example@email.com"
+                            required
+                            className="w-full border border-gray-300 rounded-lg p-3"
+                        />
+                    </div>
+                    <div>
+                        <label className="block font-semibold mb-2">Phone *</label>
+                        <input
+                            type="tel"
+                            name="phone"
+                            value={form.phone}
+                            onChange={handleChange}
+                            placeholder="10 digits phone no."
+                            required
+                            className="w-full border border-gray-300 rounded-lg p-3"
+                        />
+                    </div>
+                </div>
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
 
                 {/* Objective */}
                 <div>
@@ -144,7 +197,11 @@ function FormPage() {
                     type="submit"
                     className="w-full bg-[#766ABB] text-white py-3 rounded-lg font-bold hover:bg-[#5a4a99] transition"
                 >
+<<<<<<< HEAD
                     Save Resume
+=======
+                    Save Details
+>>>>>>> 8523f9e (changed footer,form,career advice and ATS)
                 </button>
             </form>
         </div>
