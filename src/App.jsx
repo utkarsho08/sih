@@ -1,3 +1,4 @@
+import Career from "./pages/Career";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -16,6 +17,7 @@ function App() {
       {/* Page Content */}
       <div className="p-6">
         <Routes>
+          <Route path="/Career" element={<Career />} />
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<FormPage />} />
           <Route path="/resume" element={<ResumePage />} />
