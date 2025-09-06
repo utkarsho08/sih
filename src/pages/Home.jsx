@@ -9,22 +9,23 @@ function Home() {
   ];
 
   const categories = [
-    { id: 1, name: "Engineering", img: "https://img.icons8.com/color/96/engineering.png" },
-    { id: 2, name: "Design", img: "https://img.icons8.com/color/96/design.png" },
-    { id: 3, name: "Marketing", img: "https://img.icons8.com/color/96/advertising.png" },
-    { id: 4, name: "Finance", img: "https://img.icons8.com/color/96/money.png" },
+    { id: 1, name: "Engineering", img: "https://img.icons8.com/color/96/000000/engineering.png" },
+    { id: 2, name: "Design", img: "https://img.icons8.com/color/96/000000/design.png" },
+    { id: 3, name: "Marketing", img: "https://img.icons8.com/color/96/000000/advertising.png" },
+    { id: 4, name: "Finance", img: "https://img.icons8.com/color/96/000000/money.png" },
   ];
 
-  const companies = [
-    { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-    { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
-    { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-    { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Adobe_Corporate_logo.svg" },
-    { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg" },
-    { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
-    { name: "Zomato", logo: "https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png" },
-    { name: "Flipkart", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Flipkart_logo.png" },
-  ];
+const companies = [
+  { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
+  { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
+  { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
+  // { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Adobe_Corporate_logo.png" },
+  // { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg" },
+  { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
+  { name: "Zomato", logo: "https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png" },
+  // { name: "Flipkart", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Flipkart_logo.png" },
+];
+
 
   return (
     <div className="bg-white text-[#333]">
@@ -52,7 +53,7 @@ function Home() {
               key={i}
               src={c.logo}
               alt={c.name}
-              className="h-10 object-contain grayscale hover:grayscale-0 transition"
+              className="h-12 object-contain transition"
             />
           ))}
         </div>
