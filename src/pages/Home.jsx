@@ -13,17 +13,19 @@ import google from "../assets/images/google.png";
 import microsoft from "../assets/images/microsoft.png";
 import zomato from "../assets/images/zomato.png";
 import hyundai from "../assets/images/hyundai.png";
-import heroImg from "../assets/images/hero.jpg"; // ✅ Add your hero image here
+import heroImg from "../assets/images/hero.jpg"; // ✅ Hero image
 
 function Home() {
   const [selectedIndustry, setSelectedIndustry] = useState("Agriculture");
 
   // ✅ Trending Internships
   const trending = [
-    { id: 1, title: "Web Development", company: "Google", location: "Remote" },
-    { id: 2, title: "Data Science", company: "Microsoft", location: "Bangalore" },
-    { id: 3, title: "UI/UX Design", company: "Adobe", location: "Delhi" },
-    { id: 4, title: "Marketing", company: "Zomato", location: "Mumbai" },
+    { id: 1, title: "Web Development", company: "Google", location: "Remote", stipend: "₹15,000/month" },
+    { id: 2, title: "Data Science", company: "Microsoft", location: "Bangalore", stipend: "₹20,000/month" },
+    { id: 3, title: "UI/UX Design", company: "Adobe", location: "Delhi", stipend: "₹12,000/month" },
+    { id: 4, title: "AI Research Intern", company: "OpenAI", location: "Remote", stipend: "₹25,000/month" },
+    { id: 5, title: "Cloud Engineering", company: "Amazon", location: "Hyderabad", stipend: "₹18,000/month" },
+    { id: 6, title: "Cybersecurity Analyst", company: "Cisco", location: "Pune", stipend: "₹16,000/month" },
   ];
 
   // ✅ Industry filter buttons
@@ -120,6 +122,9 @@ function Home() {
               <p className="text-gray-600">
                 {job.company} – {job.location}
               </p>
+              <span className="inline-block mt-2 bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full">
+                {job.stipend}
+              </span>
               <button className="mt-4 bg-[#766ABB] hover:bg-[#5d5294] px-4 py-2 rounded text-sm text-white">
                 Apply Now
               </button>
@@ -138,10 +143,11 @@ function Home() {
             <button
               key={ind}
               onClick={() => setSelectedIndustry(ind)}
-              className={`px-6 py-2 rounded-lg font-medium transition ${selectedIndustry === ind
-                ? "bg-[#766ABB] text-white"
-                : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
-                }`}
+              className={`px-6 py-2 rounded-lg font-medium transition ${
+                selectedIndustry === ind
+                  ? "bg-[#766ABB] text-white"
+                  : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
+              }`}
             >
               {ind}
             </button>
