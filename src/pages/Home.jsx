@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import wipro from "../assets/images/wipro.png";
 import visa from "../assets/images/visa.png";
@@ -6,10 +7,18 @@ import bajaj from "../assets/images/bajaj.png";
 import nike from "../assets/images/nike.png";
 import drdo from "../assets/images/drdo.png";
 import suzuki from "../assets/images/suzuki.png";
+import amazon from "../assets/images/amazon.png";
+import flipkart from "../assets/images/flipkart.png";
+import google from "../assets/images/google.png";
+import microsoft from "../assets/images/microsoft.png";
+import zomato from "../assets/images/zomato.png";
 import hyundai from "../assets/images/hyundai.png";
 import heroImg from "../assets/images/hero.jpg"; // ✅ Add your hero image here
 
 function Home() {
+  const [selectedIndustry, setSelectedIndustry] = useState("Agriculture");
+
+  // ✅ Trending Internships
   const trending = [
     { id: 1, title: "Web Development", company: "Google", location: "Remote" },
     { id: 2, title: "Data Science", company: "Microsoft", location: "Bangalore" },
@@ -17,33 +26,50 @@ function Home() {
     { id: 4, title: "Marketing", company: "Zomato", location: "Mumbai" },
   ];
 
-  const categories = [
-    { id: 1, name: "Engineering", img: "https://img.icons8.com/color/96/000000/engineering.png" },
-    { id: 2, name: "Design", img: "https://img.icons8.com/color/96/000000/design.png" },
-    { id: 3, name: "Marketing", img: "https://img.icons8.com/color/96/000000/money.png" },
-    { id: 4, name: "Finance", img: "https://img.icons8.com/color/96/000000/money.png" },
-  ];
+  // ✅ Industry filter buttons
+  const industries = ["Agriculture", "Engineering", "Design", "Finance", "Marketing"];
 
-  const companies = [
-    { name: "visa", logo: visa },
-    { name: "wipro", logo: wipro },
-    { name: "adani", logo: adani },
-    { name: "bajaj", logo: bajaj },
-    { name: "suzuki", logo: suzuki },
-    { name: "drdo", logo: drdo },
-    { name: "nike", logo: nike },
-    { name: "hyundai", logo: hyundai },
-  ];
+  // ✅ Companies mapped to industries
+  const industryCompanies = {
+    Agriculture: [
+      { name: "visa", logo: visa },
+      { name: "wipro", logo: wipro },
+      { name: "adani", logo: adani },
+      { name: "bajaj", logo: bajaj },
+      { name: "suzuki", logo: suzuki },
+      { name: "drdo", logo: drdo },
+      { name: "nike", logo: nike },
+      { name: "hyundai", logo: hyundai },
+      { name: "amazon", logo: amazon },
+      { name: "flipkart", logo: flipkart },
+      { name: "google", logo: google },
+      { name: "microsoft", logo: microsoft },
+      { name: "zomato", logo: zomato },
+    ],
+    Engineering: [
+      { name: "Wipro", logo: wipro },
+      { name: "Hyundai", logo: hyundai },
+      { name: "Suzuki", logo: suzuki },
+    ],
+    Design: [{ name: "Nike", logo: nike }],
+    Finance: [
+      { name: "Visa", logo: visa },
+      { name: "Bajaj", logo: bajaj },
+    ],
+    Marketing: [
+      { name: "Adani", logo: adani },
+      { name: "Wipro", logo: wipro },
+    ],
+  };
 
   return (
     <div className="bg-white text-[#333]">
       {/* ✅ Hero Section */}
       <section className="relative bg-[#766ABB] text-white py-16 md:py-24 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
           <div className="text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-              Find Your <span className="text-yellow-300">Dream Internship</span> 
+              Find Your <span className="text-yellow-300">Dream Internship</span>
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-lg">
               Build your resume, explore trending opportunities, and land your dream role with ease.
@@ -55,8 +81,6 @@ function Home() {
               Get Started
             </Link>
           </div>
-
-          {/* Right Image */}
           <div className="flex justify-center md:justify-end">
             <img
               src={heroImg}
@@ -67,22 +91,30 @@ function Home() {
         </div>
       </section>
 
-      {/* ✅ Rest of your sections remain the same */}
+      {/* ✅ Moving Companies */}
       <section className="bg-gray-100 py-6 overflow-hidden relative">
         <div className="flex animate-scroll space-x-16 items-center w-max">
-          {[...companies, ...companies].map((c, i) => (
-            <img key={i} src={c.logo} alt={c.name} className="h-12 object-contain transition" />
-          ))}
+          {Object.values(industryCompanies)
+            .flat()
+            .map((c, i) => (
+              <img
+                key={i}
+                src={c.logo}
+                alt={c.name}
+                className="h-12 object-contain transition hover:scale-110"
+              />
+            ))}
         </div>
       </section>
 
+      {/* ✅ Trending Internships */}
       <section className="max-w-6xl mx-auto py-12 px-6">
-        <h2 className="text-3xl font-bold mb-8"> Trending Internships</h2>
+        <h2 className="text-3xl font-bold mb-8">Trending Internships</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {trending.map((job) => (
             <div
               key={job.id}
-              className="bg-white border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition"
+              className="bg-white border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-lg hover:scale-[1.02] transition"
             >
               <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
               <p className="text-gray-600">
@@ -96,33 +128,59 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-gray-100 py-12 px-6">
-        <h2 className="text-3xl font-bold mb-8">What are you looking for today?</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((cat) => (
-            <div
-              key={cat.id}
-              className="bg-white p-6 rounded-lg text-center shadow-sm border border-gray-200 hover:shadow-md transition"
+      {/* ✅ Explore by Industry */}
+      <section className="bg-gray-50 py-12 px-6">
+        <h2 className="text-3xl font-bold mb-6 text-center">Explore by Industry</h2>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
+          {industries.map((ind) => (
+            <button
+              key={ind}
+              onClick={() => setSelectedIndustry(ind)}
+              className={`px-6 py-2 rounded-lg font-medium transition ${selectedIndustry === ind
+                ? "bg-[#766ABB] text-white"
+                : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
+                }`}
             >
-              <img src={cat.img} alt={cat.name} className="mx-auto mb-4 w-20 h-20" />
-              <h3 className="text-lg font-semibold">{cat.name}</h3>
-            </div>
+              {ind}
+            </button>
           ))}
+        </div>
+
+        {/* ✅ Auto-scrolling company cards */}
+        <div className="overflow-hidden relative">
+          <div className="flex animate-scroll-fast space-x-6 w-max px-4">
+            {industryCompanies[selectedIndustry].map((c, idx) => (
+              <div
+                key={idx}
+                className="bg-white shadow-md rounded-lg p-6 w-48 flex flex-col items-center border hover:shadow-xl hover:scale-105 transition"
+              >
+                <img src={c.logo} alt={c.name} className="h-16 mb-3 object-contain" />
+                <h3 className="text-lg font-semibold">{c.name}</h3>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
+      {/* ✅ Footer */}
       <footer className="bg-[#766ABB] py-6 text-center text-white mt-10">
         <p>© {new Date().getFullYear()} Internshala Clone. Built with ❤️</p>
       </footer>
 
+      {/* ✅ Animations */}
       <style>
         {`
           @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(-100%); }
           }
           .animate-scroll {
-            animation: scroll 25s linear infinite;
+            animation: scroll 15s linear infinite;
+          }
+          .animate-scroll-fast {
+            animation: scroll 12s linear infinite;
           }
         `}
       </style>
