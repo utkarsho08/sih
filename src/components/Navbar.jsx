@@ -18,7 +18,8 @@ function Navbar() {
           {[
             { to: "/", label: "Home" },
             { to: "/form", label: "Create Resume" },
-            { to: "/resume", label: "Preview Resume" },
+            { to: "/resume", label: "ATS Checker" },
+            { to: "/career", label: "Career Advice" }, // ✅ New
             { to: "/internships", label: "Internships" },
           ].map((link) => (
             <Link
@@ -54,7 +55,8 @@ function Navbar() {
           {[
             { to: "/", label: "Home" },
             { to: "/form", label: "Create Resume" },
-            { to: "/resume", label: "Preview Resume" },
+            { to: "/resume", label: "ATS Checker" },
+            { to: "/career", label: "Career Advice" }, // ✅ New
             { to: "/internships", label: "Internships" },
             { to: "/login", label: "Login" },
           ].map((link) => (
