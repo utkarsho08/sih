@@ -43,7 +43,7 @@ function Home() {
           {/* Left Content */}
           <div className="text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-              Find Your <span className="text-yellow-300">Dream Internship</span> 🚀
+              Find Your <span className="text-yellow-300">Dream Internship</span> 
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-lg">
               Build your resume, explore trending opportunities, and land your dream role with ease.
