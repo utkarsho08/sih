@@ -14,7 +14,7 @@ function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8">
           {[
             { to: "/", label: "Home" },
             { to: "/form", label: "Create Resume" },
@@ -29,6 +29,14 @@ function Navbar() {
               {link.label}
             </Link>
           ))}
+
+          {/* Login Button */}
+          <Link
+            to="/login"
+            className="ml-6 px-4 py-2 bg-white text-[#766ABB] font-semibold rounded-lg hover:bg-gray-200 transition"
+          >
+            Login
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -48,6 +56,7 @@ function Navbar() {
             { to: "/form", label: "Create Resume" },
             { to: "/resume", label: "Preview Resume" },
             { to: "/internships", label: "Internships" },
+            { to: "/login", label: "Login" },
           ].map((link) => (
             <Link
               key={link.to}
