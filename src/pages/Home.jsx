@@ -11,7 +11,7 @@ function Home() {
   const categories = [
     { id: 1, name: "Engineering", img: "https://img.icons8.com/color/96/000000/engineering.png" },
     { id: 2, name: "Design", img: "https://img.icons8.com/color/96/000000/design.png" },
-    { id: 3, name: "Marketing", img: "https://img.icons8.com/color/96/000000/advertising.png" },
+    { id: 3, name: "Marketing", img: "https://img.icons8.com/color/96/000000/money.png" },
     { id: 4, name: "Finance", img: "https://img.icons8.com/color/96/000000/money.png" },
   ];
 
@@ -32,7 +32,7 @@ const companies = [
       {/* Hero Section */}
       <section className="relative bg-[#766ABB] text-white py-24 text-center px-6">
         <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-          Find Your Dream Internship 🚀
+          Find Your Dream Internship 
         </h1>
         <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-2xl mx-auto">
           Build your resume, explore trending opportunities, and land your dream role with ease.
@@ -61,7 +61,7 @@ const companies = [
 
       {/* Trending Internships */}
       <section className="max-w-6xl mx-auto py-12 px-6">
-        <h2 className="text-3xl font-bold mb-8">🔥 Trending Internships</h2>
+        <h2 className="text-3xl font-bold mb-8"> Trending Internships</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {trending.map((job) => (
             <div
@@ -83,7 +83,7 @@ const companies = [
       {/* Categories */}
       <section className="bg-gray-100 py-12 px-6">
         <h2 className="text-3xl font-bold mb-8">
-          📌 What are you looking for today?
+            What are you looking for today?
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((cat) => (
