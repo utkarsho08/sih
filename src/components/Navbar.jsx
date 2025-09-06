@@ -10,7 +10,7 @@ function Navbar() {
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-white tracking-wide">
-          Internshala Clone
+          Internova
         </Link>
 
         {/* Desktop Links */}

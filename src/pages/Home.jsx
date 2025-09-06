@@ -9,26 +9,10 @@ function Home() {
   ];
 
   const categories = [
-    {
-      id: 1,
-      name: "Engineering",
-      img: "https://img.icons8.com/color/96/engineering.png",
-    },
-    {
-      id: 2,
-      name: "Design",
-      img: "https://img.icons8.com/color/96/design.png",
-    },
-    {
-      id: 3,
-      name: "Marketing",
-      img: "https://img.icons8.com/color/96/engineering.png",
-    },
-    {
-      id: 4,
-      name: "Finance",
-      img: "https://img.icons8.com/color/96/money.png",
-    },
+    { id: 1, name: "Engineering", img: "https://img.icons8.com/color/96/engineering.png" },
+    { id: 2, name: "Design", img: "https://img.icons8.com/color/96/design.png" },
+    { id: 3, name: "Marketing", img: "https://img.icons8.com/color/96/advertising.png" },
+    { id: 4, name: "Finance", img: "https://img.icons8.com/color/96/money.png" },
   ];
 
   const companies = [
@@ -45,25 +29,25 @@ function Home() {
   return (
     <div className="bg-white text-[#333]">
       {/* Hero Section */}
-      <section className="relative bg-[#766ABB] text-white py-20 text-center">
-        <h1 className="text-5xl font-bold mb-6">
+      <section className="relative bg-[#766ABB] text-white py-24 text-center px-6">
+        <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
           Find Your Dream Internship 🚀
         </h1>
-        <p className="text-lg mb-8 text-gray-100">
-          Build your resume, explore trending opportunities, and land your dream role.
+        <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-2xl mx-auto">
+          Build your resume, explore trending opportunities, and land your dream role with ease.
         </p>
         <Link
           to="/form"
-          className="bg-white text-[#766ABB] hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition"
+          className="bg-white text-[#766ABB] hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition shadow"
         >
           Get Started
         </Link>
       </section>
 
       {/* Moving Companies */}
-      <section className="overflow-hidden bg-gray-100 py-6">
-        <div className="animate-marquee flex space-x-16 items-center">
-          {companies.map((c, i) => (
+      <section className="bg-gray-100 py-6 overflow-hidden relative">
+        <div className="flex animate-scroll space-x-16 items-center w-max">
+          {[...companies, ...companies].map((c, i) => (
             <img
               key={i}
               src={c.logo}
@@ -121,6 +105,19 @@ function Home() {
       <footer className="bg-[#766ABB] py-6 text-center text-white mt-10">
         <p>© {new Date().getFullYear()} Internshala Clone. Built with ❤️</p>
       </footer>
+
+      {/* Custom CSS for marquee */}
+      <style>
+        {`
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-scroll {
+            animation: scroll 25s linear infinite;
+          }
+        `}
+      </style>
     </div>
   );
 }
