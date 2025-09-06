@@ -22,7 +22,7 @@ function Home() {
     {
       id: 3,
       name: "Marketing",
-      img: "https://img.icons8.com/color/96/000000/marketing.png",
+      img: "https://img.icons8.com/color/96/engineering.png",
     },
     {
       id: 4,
