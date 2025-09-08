@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useState } from "react";
-=======
 import { useState, useRef } from "react";
->>>>>>> 8523f9e (changed footer,form,career advice and ATS)
 import { Link } from "react-router-dom";
 import wipro from "../assets/images/wipro.png";
 import visa from "../assets/images/visa.png";
@@ -17,11 +13,11 @@ import google from "../assets/images/google.png";
 import microsoft from "../assets/images/microsoft.png";
 import zomato from "../assets/images/zomato.png";
 import hyundai from "../assets/images/hyundai.png";
-<<<<<<< HEAD
-import heroImg from "../assets/images/hero.jpg"; // ✅ Hero image
+import heroImg from "../assets/images/hero.jpg";
 
 function Home() {
   const [selectedIndustry, setSelectedIndustry] = useState("Agriculture");
+  const scrollRef = useRef(null);
 
   // ✅ Trending Internships
   const trending = [
@@ -31,20 +27,6 @@ function Home() {
     { id: 4, title: "AI Research Intern", company: "OpenAI", location: "Remote", stipend: "₹25,000/month" },
     { id: 5, title: "Cloud Engineering", company: "Amazon", location: "Hyderabad", stipend: "₹18,000/month" },
     { id: 6, title: "Cybersecurity Analyst", company: "Cisco", location: "Pune", stipend: "₹16,000/month" },
-=======
-import heroImg from "../assets/images/hero.jpg"; 
-
-function Home() {
-  const [selectedIndustry, setSelectedIndustry] = useState("Agriculture");
-  const scrollRef = useRef(null);
-
-  // ✅ Trending Internships
-  const trending = [
-    { id: 1, title: "Web Development", company: "Google", location: "Remote" },
-    { id: 2, title: "Data Science", company: "Microsoft", location: "Bangalore" },
-    { id: 3, title: "UI/UX Design", company: "Adobe", location: "Delhi" },
-    { id: 4, title: "Marketing", company: "Zomato", location: "Mumbai" },
->>>>>>> 8523f9e (changed footer,form,career advice and ATS)
   ];
 
   // ✅ Industry filter buttons
@@ -53,19 +35,19 @@ function Home() {
   // ✅ Companies mapped to industries
   const industryCompanies = {
     Agriculture: [
-      { name: "visa", logo: visa },
-      { name: "wipro", logo: wipro },
-      { name: "adani", logo: adani },
-      { name: "bajaj", logo: bajaj },
-      { name: "suzuki", logo: suzuki },
-      { name: "drdo", logo: drdo },
-      { name: "nike", logo: nike },
-      { name: "hyundai", logo: hyundai },
-      { name: "amazon", logo: amazon },
-      { name: "flipkart", logo: flipkart },
-      { name: "google", logo: google },
-      { name: "microsoft", logo: microsoft },
-      { name: "zomato", logo: zomato },
+      { name: "Visa", logo: visa },
+      { name: "Wipro", logo: wipro },
+      { name: "Adani", logo: adani },
+      { name: "Bajaj", logo: bajaj },
+      { name: "Suzuki", logo: suzuki },
+      { name: "DRDO", logo: drdo },
+      { name: "Nike", logo: nike },
+      { name: "Hyundai", logo: hyundai },
+      { name: "Amazon", logo: amazon },
+      { name: "Flipkart", logo: flipkart },
+      { name: "Google", logo: google },
+      { name: "Microsoft", logo: microsoft },
+      { name: "Zomato", logo: zomato },
     ],
     Engineering: [
       { name: "Wipro", logo: wipro },
@@ -83,13 +65,11 @@ function Home() {
     ],
   };
 
-<<<<<<< HEAD
-=======
   // ✅ Function to scroll industry cards
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollAmount = clientWidth; // scroll by container width
+      const scrollAmount = clientWidth;
       if (direction === "left") {
         scrollRef.current.scrollTo({
           left: scrollLeft - scrollAmount,
@@ -104,7 +84,6 @@ function Home() {
     }
   };
 
->>>>>>> 8523f9e (changed footer,form,career advice and ATS)
   return (
     <div className="bg-white text-[#333]">
       {/* ✅ Hero Section */}
@@ -115,11 +94,7 @@ function Home() {
               Find Your <span className="text-yellow-300">Dream Internship</span>
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-lg">
-<<<<<<< HEAD
-              Build your resume, explore trending opportunities, and land your dream role with ease.
-=======
               Upload your resume, explore trending opportunities, and land your dream role with ease.
->>>>>>> 8523f9e (changed footer,form,career advice and ATS)
             </p>
             <Link
               to="/form"
@@ -167,12 +142,9 @@ function Home() {
               <p className="text-gray-600">
                 {job.company} – {job.location}
               </p>
-<<<<<<< HEAD
               <span className="inline-block mt-2 bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full">
                 {job.stipend}
               </span>
-=======
->>>>>>> 8523f9e (changed footer,form,career advice and ATS)
               <button className="mt-4 bg-[#766ABB] hover:bg-[#5d5294] px-4 py-2 rounded text-sm text-white">
                 Apply Now
               </button>
@@ -202,59 +174,37 @@ function Home() {
           ))}
         </div>
 
-<<<<<<< HEAD
-        {/* ✅ Auto-scrolling company cards */}
-        <div className="overflow-hidden relative">
-          <div className="flex animate-scroll-fast space-x-6 w-max px-4">
+        {/* ✅ Slider with buttons */}
+        <div className="relative">
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#766ABB] text-white px-3 py-2 rounded-full z-10 hover:bg-[#5d5294] shadow"
+          >
+            &#8592;
+          </button>
+
+          <div
+            ref={scrollRef}
+            className="flex flex-nowrap space-x-6 px-4 overflow-x-auto scrollbar-hide"
+          >
             {industryCompanies[selectedIndustry].map((c, idx) => (
               <div
                 key={idx}
-                className="bg-white shadow-md rounded-lg p-6 w-48 flex flex-col items-center border hover:shadow-xl hover:scale-105 transition"
+                className="bg-white shadow-md rounded-lg p-6 w-48 flex-shrink-0 flex flex-col items-center border hover:shadow-xl hover:scale-105 transition"
               >
                 <img src={c.logo} alt={c.name} className="h-16 mb-3 object-contain" />
                 <h3 className="text-lg font-semibold">{c.name}</h3>
               </div>
             ))}
           </div>
+
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#766ABB] text-white px-3 py-2 rounded-full z-10 hover:bg-[#5d5294] shadow"
+          >
+            &#8594;
+          </button>
         </div>
-      </section>
-
-      {/* ✅ Footer */}
-      <footer className="bg-[#766ABB] py-6 text-center text-white mt-10">
-        <p>© {new Date().getFullYear()} Internshala Clone. Built with ❤️</p>
-=======
-        {/* ✅ Slider with buttons */}
-        <div className="relative">
-  <button
-    onClick={() => scroll("left")}
-    className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#766ABB] text-white px-3 py-2 rounded-full z-10 hover:bg-[#5d5294] shadow"
-  >
-    &#8592;
-  </button>
-
-  <div
-    ref={scrollRef}
-    className="flex flex-nowrap space-x-6 px-4 overflow-x-auto scrollbar-hide"
-  >
-    {industryCompanies[selectedIndustry].map((c, idx) => (
-      <div
-        key={idx}
-        className="bg-white shadow-md rounded-lg p-6 w-48 flex-shrink-0 flex flex-col items-center border hover:shadow-xl hover:scale-105 transition"
-      >
-        <img src={c.logo} alt={c.name} className="h-16 mb-3 object-contain" />
-        <h3 className="text-lg font-semibold">{c.name}</h3>
-      </div>
-    ))}
-  </div>
-
-  <button
-    onClick={() => scroll("right")}
-    className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#766ABB] text-white px-3 py-2 rounded-full z-10 hover:bg-[#5d5294] shadow"
-  >
-    &#8594;
-  </button>
-</div>
-
       </section>
 
       {/* ✅ Updated Footer */}
@@ -267,7 +217,6 @@ function Home() {
             <a href="#" className="hover:text-yellow-300">Privacy Policy</a>
           </div>
         </div>
->>>>>>> 8523f9e (changed footer,form,career advice and ATS)
       </footer>
 
       {/* ✅ Animations */}
@@ -278,13 +227,7 @@ function Home() {
             100% { transform: translateX(-100%); }
           }
           .animate-scroll {
-<<<<<<< HEAD
-            animation: scroll 15s linear infinite;
-          }
-          .animate-scroll-fast {
-            animation: scroll 12s linear infinite;
-=======
-            animation: scroll 150s linear infinite; /* slower */
+            animation: scroll 150s linear infinite;
           }
           /* Hide scrollbar */
           .scrollbar-hide::-webkit-scrollbar {
@@ -293,7 +236,6 @@ function Home() {
           .scrollbar-hide {
             -ms-overflow-style: none;
             scrollbar-width: none;
->>>>>>> 8523f9e (changed footer,form,career advice and ATS)
           }
         `}
       </style>
