@@ -1,0 +1,56 @@
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: rgb(118, 106, 187);
+    /* updated color */
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.navbar-logo {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+/* Links container */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    /* spacing between links */
+}
+
+/* Individual links */
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+    color: #10b981;
+    /* accent color on hover */
+}
+
+/* Login button */
+.navbar-login {
+    padding: 8px 16px;
+    background-color: #10b981;
+    /* accent color */
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.navbar-login:hover {
+    background-color: white;
+    color: #10b981;
+}

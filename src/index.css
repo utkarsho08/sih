@@ -1,11 +1,15 @@
-/* @tailwind base;
+/* src/index.css */
+
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom marquee animation */
 @keyframes marquee {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -15,4 +19,4 @@
   display: inline-flex;
   min-width: 100%;
   animation: marquee 20s linear infinite;
-} */
+}
