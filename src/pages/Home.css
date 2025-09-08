@@ -1,0 +1,41 @@
+/* Fade-in-up animation for hero text and buttons */
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 1s ease forwards;
+}
+
+.animate-fade-in-up.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animate-fade-in-up.delay-400 {
+    animation-delay: 0.4s;
+}
+
+/* Slow floating effect for decorative circles */
+@keyframes bounce-slow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 6s ease-in-out infinite;
+}

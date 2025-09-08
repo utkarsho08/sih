@@ -14,12 +14,12 @@ import microsoft from "../assets/images/microsoft.png";
 import zomato from "../assets/images/zomato.png";
 import hyundai from "../assets/images/hyundai.png";
 import heroImg from "../assets/images/hero.jpg";
+import "./Home.css";
 
 function Home() {
   const [selectedIndustry, setSelectedIndustry] = useState("Agriculture");
   const scrollRef = useRef(null);
 
-  // ✅ Trending Internships
   const trending = [
     { id: 1, title: "Web Development", company: "Google", location: "Remote", stipend: "₹15,000/month" },
     { id: 2, title: "Data Science", company: "Microsoft", location: "Bangalore", stipend: "₹20,000/month" },
@@ -29,10 +29,8 @@ function Home() {
     { id: 6, title: "Cybersecurity Analyst", company: "Cisco", location: "Pune", stipend: "₹16,000/month" },
   ];
 
-  // ✅ Industry filter buttons
   const industries = ["Agriculture", "Engineering", "Design", "Finance", "Marketing"];
 
-  // ✅ Companies mapped to industries
   const industryCompanies = {
     Agriculture: [
       { name: "Visa", logo: visa },
@@ -65,7 +63,6 @@ function Home() {
     ],
   };
 
-  // ✅ Function to scroll industry cards
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
@@ -87,9 +84,13 @@ function Home() {
   return (
     <div className="bg-white text-[#333]">
       {/* ✅ Hero Section */}
-      <section className="relative bg-[#766ABB] text-white py-16 md:py-24 px-6">
+      <section className="relative bg-[#766ABB] text-white py-16 md:py-24 px-6 overflow-hidden">
+        {/* Floating circles */}
+        <div className="absolute top-10 left-10 w-24 h-24 bg-white opacity-10 rounded-full animate-bounce-slow"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-white opacity-10 rounded-full animate-bounce-slow"></div>
+
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left animate-fade-in-up">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
               Find Your <span className="text-yellow-300">Dream Internship</span>
             </h1>
@@ -98,16 +99,16 @@ function Home() {
             </p>
             <Link
               to="/form"
-              className="bg-white text-[#766ABB] hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition shadow"
+              className="bg-white text-[#766ABB] hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition shadow transform hover:scale-105"
             >
               Get Started
             </Link>
           </div>
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center md:justify-end animate-fade-in-up delay-200">
             <img
               src={heroImg}
               alt="Internship illustration"
-              className="w-full max-w-md rounded-lg drop-shadow-lg"
+              className="w-full max-w-md rounded-lg drop-shadow-lg hover:scale-105 transform transition duration-500"
             />
           </div>
         </div>
@@ -157,24 +158,21 @@ function Home() {
       <section className="bg-gray-50 py-12 px-6">
         <h2 className="text-3xl font-bold mb-6 text-center">Explore by Industry</h2>
 
-        {/* Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           {industries.map((ind) => (
             <button
               key={ind}
               onClick={() => setSelectedIndustry(ind)}
-              className={`px-6 py-2 rounded-lg font-medium transition ${
-                selectedIndustry === ind
-                  ? "bg-[#766ABB] text-white"
-                  : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
-              }`}
+              className={`px-6 py-2 rounded-lg font-medium transition ${selectedIndustry === ind
+                ? "bg-[#766ABB] text-white"
+                : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
+                }`}
             >
               {ind}
             </button>
           ))}
         </div>
 
-        {/* ✅ Slider with buttons */}
         <div className="relative">
           <button
             onClick={() => scroll("left")}
@@ -207,7 +205,7 @@ function Home() {
         </div>
       </section>
 
-      {/* ✅ Updated Footer */}
+      {/* ✅ Footer */}
       <footer className="bg-[#766ABB] py-10 text-white mt-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <p>© {new Date().getFullYear()} Internship Platform</p>
@@ -219,7 +217,6 @@ function Home() {
         </div>
       </footer>
 
-      {/* ✅ Animations */}
       <style>
         {`
           @keyframes scroll {
@@ -229,6 +226,7 @@ function Home() {
           .animate-scroll {
             animation: scroll 150s linear infinite;
           }
+
           /* Hide scrollbar */
           .scrollbar-hide::-webkit-scrollbar {
             display: none;
