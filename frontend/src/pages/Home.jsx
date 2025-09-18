@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import wipro from "../assets/images/wipro.png";
 import visa from "../assets/images/visa.png";
 import adani from "../assets/images/adani.png";
@@ -17,6 +18,7 @@ import heroImg from "../assets/images/hero.jpg";
 import "./Home.css";
 
 function Home() {
+  const { t } = useTranslation(); // ✅ Translation hook
   const [selectedIndustry, setSelectedIndustry] = useState("Agriculture");
   const scrollRef = useRef(null);
 
@@ -67,54 +69,46 @@ function Home() {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
       const scrollAmount = clientWidth;
-      if (direction === "left") {
-        scrollRef.current.scrollTo({
-          left: scrollLeft - scrollAmount,
-          behavior: "smooth",
-        });
-      } else {
-        scrollRef.current.scrollTo({
-          left: scrollLeft + scrollAmount,
-          behavior: "smooth",
-        });
-      }
+      scrollRef.current.scrollTo({
+        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
     <div className="bg-white text-[#333]">
-      {/* ✅ Hero Section */}
+      {/* Hero Section */}
       <section className="relative bg-[#766ABB] text-white py-16 md:py-24 px-6 overflow-hidden">
-        {/* Floating circles */}
         <div className="absolute top-10 left-10 w-24 h-24 bg-white opacity-10 rounded-full animate-bounce-slow"></div>
         <div className="absolute bottom-20 right-20 w-32 h-32 bg-white opacity-10 rounded-full animate-bounce-slow"></div>
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left animate-fade-in-up">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-              Find Your <span className="text-yellow-300">Dream Internship</span>
+              {t("findYour")} <span className="text-yellow-300">{t("dreamInternship")}</span>
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-lg">
-              Upload your resume, explore trending opportunities, and land your dream role with ease.
+              {t("heroDescription")}
             </p>
             <Link
               to="/form"
               className="bg-white text-[#766ABB] hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition shadow transform hover:scale-105"
             >
-              Get Started
+              {t("getStarted")}
             </Link>
           </div>
           <div className="flex justify-center md:justify-end animate-fade-in-up delay-200">
             <img
               src={heroImg}
-              alt="Internship illustration"
+              alt={t("heroAlt")}
               className="w-full max-w-md rounded-lg drop-shadow-lg hover:scale-105 transform transition duration-500"
             />
           </div>
         </div>
       </section>
 
-      {/* ✅ Moving Companies */}
+      {/* Moving Companies */}
       <section className="bg-gray-100 py-6 overflow-hidden relative">
         <div className="flex animate-scroll space-x-16 items-center w-max">
           {Object.values(industryCompanies)
@@ -130,16 +124,16 @@ function Home() {
         </div>
       </section>
 
-      {/* ✅ Trending Internships */}
+      {/* Trending Internships */}
       <section className="max-w-6xl mx-auto py-12 px-6">
-        <h2 className="text-3xl font-bold mb-8">Trending Internships</h2>
+        <h2 className="text-3xl font-bold mb-8">{t("trendingInternships")}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {trending.map((job) => (
             <div
               key={job.id}
               className="bg-white border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-lg hover:scale-[1.02] transition"
             >
-              <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
+              <h3 className="text-xl font-semibold mb-2">{t(job.title)}</h3>
               <p className="text-gray-600">
                 {job.company} – {job.location}
               </p>
@@ -147,28 +141,29 @@ function Home() {
                 {job.stipend}
               </span>
               <button className="mt-4 bg-[#766ABB] hover:bg-[#5d5294] px-4 py-2 rounded text-sm text-white">
-                Apply Now
+                {t("applyNow")}
               </button>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ✅ Explore by Industry */}
+      {/* Explore by Industry */}
       <section className="bg-gray-50 py-12 px-6">
-        <h2 className="text-3xl font-bold mb-6 text-center">Explore by Industry</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center">{t("exploreByIndustry")}</h2>
 
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           {industries.map((ind) => (
             <button
               key={ind}
               onClick={() => setSelectedIndustry(ind)}
-              className={`px-6 py-2 rounded-lg font-medium transition ${selectedIndustry === ind
-                ? "bg-[#766ABB] text-white"
-                : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
-                }`}
+              className={`px-6 py-2 rounded-lg font-medium transition ${
+                selectedIndustry === ind
+                  ? "bg-[#766ABB] text-white"
+                  : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
+              }`}
             >
-              {ind}
+              {t(ind)}
             </button>
           ))}
         </div>
@@ -205,14 +200,14 @@ function Home() {
         </div>
       </section>
 
-      {/* ✅ Footer */}
+      {/* Footer */}
       <footer className="bg-[#766ABB] py-10 text-white mt-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p>© {new Date().getFullYear()} Internship Platform</p>
+          <p>© {new Date().getFullYear()} {t("internshipPlatform")}</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-yellow-300">About</a>
-            <a href="#" className="hover:text-yellow-300">Contact</a>
-            <a href="#" className="hover:text-yellow-300">Privacy Policy</a>
+            <a href="#" className="hover:text-yellow-300">{t("about")}</a>
+            <a href="#" className="hover:text-yellow-300">{t("contact")}</a>
+            <a href="#" className="hover:text-yellow-300">{t("privacyPolicy")}</a>
           </div>
         </div>
       </footer>

@@ -32,11 +32,7 @@ function App() {
       {/* Navbar always visible */}
       <Navbar changeLanguage={changeLanguage} currentLang={i18n.language} />
 
-      {/* Language Toggle (optional, can also be in Navbar) */}
-      <div className="p-4 flex gap-2 justify-center">
-        <button onClick={() => changeLanguage("en")}>English</button>
-        <button onClick={() => changeLanguage("hi")}>हिन्दी</button>
-      </div>
+    
 
       {/* Page Content */}
       <div className="p-6">
