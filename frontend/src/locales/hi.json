@@ -28,5 +28,25 @@
   "UI/UX Design": "यूआई/यूएक्स डिज़ाइन",
   "AI Research Intern": "एआई रिसर्च इंटर्न",
   "Cloud Engineering": "क्लाउड इंजीनियरिंग",
-  "Cybersecurity Analyst": "साइबरसिक्योरिटी एनालिस्ट"
+  "Cybersecurity Analyst": "साइबरसिक्योरिटी एनालिस्ट",
+  "createResume": "अपना रिज़्यूमे बनाएं",
+  "fullName": "पूरा नाम",
+  "fullNamePlaceholder": "उदा. रमेश कुमार",
+  "email": "ईमेल",
+  "emailPlaceholder": "उदा. example@email.com",
+  "phone": "फ़ोन",
+  "phonePlaceholder": "9876543210",
+  "address": "पता",
+  "addressPlaceholder": "घर नं, सड़क, शहर",
+  "education": "शिक्षा",
+  "selectEducation": "-- उच्चतम योग्यता चुनें --",
+  "skills": "कौशल",
+  "skillsPlaceholder": "उदा. MS Word, टाइपिंग, प्रोग्रामिंग आदि",
+  "experience": "कार्य अनुभव",
+  "experiencePlaceholder": "उदा. 2 साल दुकान सहायक के रूप में",
+  "objective": "करियर उद्देश्य",
+  "objectivePlaceholder": "उदा. मैं मेहनत करना चाहता हूँ और अपने परिवार का समर्थन करना चाहता हूँ",
+  "saveResume": "रिज़्यूमे सहेजें",
+  "resumeSavedAlert": "✅ रिज़्यूमे विवरण सहेज लिया गया! अब प्रिव्यू पेज पर जाएँ।"
+
 }

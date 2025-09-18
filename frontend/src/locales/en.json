@@ -28,5 +28,26 @@
   "UI/UX Design": "UI/UX Design",
   "AI Research Intern": "AI Research Intern",
   "Cloud Engineering": "Cloud Engineering",
-  "Cybersecurity Analyst": "Cybersecurity Analyst"
+  "Cybersecurity Analyst": "Cybersecurity Analyst",
+  "createResume": "Create Your Resume",
+  "fullName": "Full Name",
+  "fullNamePlaceholder": "e.g. Ramesh Kumar",
+  "email": "Email",
+  "emailPlaceholder": "example@email.com",
+  "phone": "Phone",
+  "phonePlaceholder": "9876543210",
+  "address": "Address",
+  "addressPlaceholder": "House No, Street, City",
+  "education": "Education",
+  "selectEducation": "-- Select Highest Qualification --",
+  "skills": "Skills",
+  "skillsPlaceholder": "e.g. MS Word, Typing, Programming, etc.",
+  "experience": "Work Experience",
+  "experiencePlaceholder": "e.g. 2 years as Shop Assistant",
+  "objective": "Career Objective",
+  "objectivePlaceholder": "e.g. I want to work hard and support my family",
+  "saveResume": "Save Resume",
+  "resumeSavedAlert": "✅ Resume details saved! Now go to Preview Resume page."
+
+
 }

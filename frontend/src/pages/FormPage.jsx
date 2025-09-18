@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function FormPage() {
+  const { t } = useTranslation();
+
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -19,26 +22,25 @@ function FormPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("resumeData", JSON.stringify(form));
-    alert("✅ Resume details saved! Now go to Preview Resume page.");
+    alert(t("resumeSavedAlert"));
   };
 
   return (
     <div className="max-w-3xl mx-auto bg-white text-gray-800 p-8 rounded-lg shadow-lg">
       <h1 className="text-3xl font-bold mb-6 text-center text-[#766ABB]">
-        📝 Create Your Resume
+        📝 {t("createResume")}
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-
         {/* Full Name */}
         <div>
-          <label className="block font-semibold mb-2">Full Name *</label>
+          <label className="block font-semibold mb-2">{t("fullName")} *</label>
           <input
             type="text"
             name="fullName"
             value={form.fullName}
             onChange={handleChange}
-            placeholder="e.g. Ramesh Kumar"
+            placeholder={t("fullNamePlaceholder")}
             required
             className="w-full border border-gray-300 rounded-lg p-3"
           />
@@ -47,25 +49,25 @@ function FormPage() {
         {/* Contact Details */}
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label className="block font-semibold mb-2">Email *</label>
+            <label className="block font-semibold mb-2">{t("email")} *</label>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="example@email.com"
+              placeholder={t("emailPlaceholder")}
               required
               className="w-full border border-gray-300 rounded-lg p-3"
             />
           </div>
           <div>
-            <label className="block font-semibold mb-2">Phone *</label>
+            <label className="block font-semibold mb-2">{t("phone")} *</label>
             <input
               type="tel"
               name="phone"
               value={form.phone}
               onChange={handleChange}
-              placeholder="9876543210"
+              placeholder={t("phonePlaceholder")}
               required
               className="w-full border border-gray-300 rounded-lg p-3"
             />
@@ -74,19 +76,19 @@ function FormPage() {
 
         {/* Address */}
         <div>
-          <label className="block font-semibold mb-2">Address</label>
+          <label className="block font-semibold mb-2">{t("address")}</label>
           <textarea
             name="address"
             value={form.address}
             onChange={handleChange}
-            placeholder="House No, Street, City"
+            placeholder={t("addressPlaceholder")}
             className="w-full border border-gray-300 rounded-lg p-3"
           />
         </div>
 
         {/* Education */}
         <div>
-          <label className="block font-semibold mb-2">Education *</label>
+          <label className="block font-semibold mb-2">{t("education")} *</label>
           <select
             name="education"
             value={form.education}
@@ -94,7 +96,7 @@ function FormPage() {
             required
             className="w-full border border-gray-300 rounded-lg p-3"
           >
-            <option value="">-- Select Highest Qualification --</option>
+            <option value="">{t("selectEducation")}</option>
             <option value="10th Pass">10th Pass</option>
             <option value="12th Pass">12th Pass</option>
             <option value="Diploma">Diploma</option>
@@ -105,12 +107,12 @@ function FormPage() {
 
         {/* Skills */}
         <div>
-          <label className="block font-semibold mb-2">Skills *</label>
+          <label className="block font-semibold mb-2">{t("skills")} *</label>
           <textarea
             name="skills"
             value={form.skills}
             onChange={handleChange}
-            placeholder="e.g. MS Word, Typing, Programming, etc."
+            placeholder={t("skillsPlaceholder")}
             required
             className="w-full border border-gray-300 rounded-lg p-3"
           />
@@ -118,24 +120,24 @@ function FormPage() {
 
         {/* Work Experience */}
         <div>
-          <label className="block font-semibold mb-2">Work Experience</label>
+          <label className="block font-semibold mb-2">{t("experience")}</label>
           <textarea
             name="experience"
             value={form.experience}
             onChange={handleChange}
-            placeholder="e.g. 2 years as Shop Assistant"
+            placeholder={t("experiencePlaceholder")}
             className="w-full border border-gray-300 rounded-lg p-3"
           />
         </div>
 
         {/* Objective */}
         <div>
-          <label className="block font-semibold mb-2">Career Objective</label>
+          <label className="block font-semibold mb-2">{t("objective")}</label>
           <textarea
             name="objective"
             value={form.objective}
             onChange={handleChange}
-            placeholder="e.g. I want to work hard and support my family"
+            placeholder={t("objectivePlaceholder")}
             className="w-full border border-gray-300 rounded-lg p-3"
           />
         </div>
@@ -145,7 +147,7 @@ function FormPage() {
           type="submit"
           className="w-full bg-[#766ABB] text-white py-3 rounded-lg font-bold hover:bg-[#5a4a99] transition"
         >
-          Save Resume
+          {t("saveResume")}
         </button>
       </form>
     </div>
