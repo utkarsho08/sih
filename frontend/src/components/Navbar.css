@@ -5,6 +5,7 @@
     align-items: center;
     padding: 16px 24px;
     background-color: rgb(118, 106, 187);
+    /* updated color */
     color: white;
     position: sticky;
     top: 0;
@@ -22,7 +23,8 @@
 .navbar-links {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 24px;
+    /* spacing between links */
 }
 
 /* Individual links */
@@ -30,17 +32,18 @@
     color: white;
     text-decoration: none;
     transition: color 0.2s;
-    font-weight: 500;
 }
 
 .navbar-links a:hover {
     color: #10b981;
+    /* accent color on hover */
 }
 
 /* Login button */
 .navbar-login {
     padding: 8px 16px;
     background-color: #10b981;
+    /* accent color */
     color: white;
     border-radius: 6px;
     text-decoration: none;
@@ -50,42 +53,4 @@
 .navbar-login:hover {
     background-color: white;
     color: #10b981;
-}
-
-/* Language toggle button */
-.lang-toggle {
-    padding: 6px 12px;
-    background-color: transparent;
-    border: 2px solid white;
-    border-radius: 6px;
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.lang-toggle:hover {
-    background-color: white;
-    color: #10b981;
-}
-
-/* Responsive adjustment for smaller screens */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 12px 16px;
-    }
-
-    .navbar-links {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        width: 100%;
-    }
-
-    .lang-toggle {
-        align-self: flex-end;
-        margin-top: 8px;
-    }
 }
