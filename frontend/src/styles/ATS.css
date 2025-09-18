@@ -1,12 +1,27 @@
-/* src/styles/components/buttons.css */
 @import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-*{
-    font-family: "Quantico", sans-serif;
+.ats-container {
+  max-width: 500px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: "Quantico", sans-serif;
   font-weight: 200;
   font-style:normal;
-    background: linear-gradient(90deg,#20002c,#cbb4d4);
+  background: #EFE4D2;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
 }
-.btn {
+
+.file-input {
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* src/styles/components/buttons.css */
+
+.ats-button {
     padding: var(--spacing-sm) var(--spacing-lg);
     background: var(--primary-color);
     color: #fff;
@@ -18,26 +33,47 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
 
-.btn:hover {
+.ats-button:hover {
     background: var(--accent-color);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
-.btn:active {
+.ats-button:active {
     transform: translateY(0);
     box-shadow: var(--shadow-sm);
 }
 
-.btn.outline {
+.ats-button.outline {
     background: transparent;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
     box-shadow: none;
 }
 
-.btn.outline:hover {
+.ats-button.outline:hover {
     background: var(--primary-color);
     color: #fff;
     box-shadow: var(--shadow-sm);
+}
+
+
+.score-result {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.good {
+  color: green;
+  font-weight: bold;
+}
+
+.average {
+  color: orange;
+  font-weight: bold;
+}
+
+.poor {
+  color: red;
+  font-weight: bold;
 }

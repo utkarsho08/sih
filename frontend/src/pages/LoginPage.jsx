@@ -18,7 +18,7 @@ function LoginPage() {
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-8">
                 <h2 className="text-2xl font-bold text-center text-[#766ABB] mb-6">
-                    Login to Internshala Clone
+                    Login to Internova
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-5">

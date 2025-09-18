@@ -1,4 +1,12 @@
 /* Fade-in-up animation for hero text and buttons */
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+    font-family: "Quantico", sans-serif;
+  font-weight: 200;
+  font-style:normal;
+  
+}
+
 @keyframes fade-in-up {
     0% {
         opacity: 0;

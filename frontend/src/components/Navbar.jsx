@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import "./Navbar.css";
+import "../styles/Navbar.css";
 
 function Navbar() {
   const { t, i18n } = useTranslation();
@@ -21,10 +21,10 @@ function Navbar() {
       {/* Links + Login button */}
       <div className="navbar-links">
         <Link to="/">{t("Home")}</Link>
-        <Link to="/Career">{t("Career")}</Link>
+        <Link to="/form">{t("Upload Details")}</Link>
         <Link to="/internships">{t("Internships")}</Link>
-        <Link to="/resume">{t("Resume")}</Link>
-        <Link to="/form">{t("Form")}</Link>
+        <Link to="/Career">{t("AI Career Guidance")}</Link>
+        <Link to="/resume">{t("ATS Checker")}</Link>
         <Link to="/login" className="navbar-login">
           {t("Login")}
         </Link>

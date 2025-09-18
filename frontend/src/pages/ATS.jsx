@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/ATS.css";
+import "../styles/ATS.css"
 
 const ATSChecker = () => {
   const [file, setFile] = useState(null);

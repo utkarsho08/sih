@@ -28,7 +28,7 @@ function FormPage() {
   return (
     <div className="max-w-3xl mx-auto bg-white text-gray-800 p-8 rounded-lg shadow-lg">
       <h1 className="text-3xl font-bold mb-6 text-center text-[#766ABB]">
-        📝 {t("createResume")}
+        {t("Upload Details")}
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -147,7 +147,7 @@ function FormPage() {
           type="submit"
           className="w-full bg-[#766ABB] text-white py-3 rounded-lg font-bold hover:bg-[#5a4a99] transition"
         >
-          {t("saveResume")}
+          {t("Save Details")}
         </button>
       </form>
     </div>

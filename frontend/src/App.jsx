@@ -9,6 +9,7 @@ import InternshipPage from "./pages/InternshipPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 
+
 // i18next hook
 import { useTranslation } from "react-i18next";
 
