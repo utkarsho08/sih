@@ -47,7 +47,22 @@
   "objective": "Career Objective",
   "objectivePlaceholder": "e.g. I want to work hard and support my family",
   "saveResume": "Save Resume",
-  "resumeSavedAlert": "✅ Resume details saved! Now go to Preview Resume page."
-
+  "resumeSavedAlert": "✅ Resume details saved! Now go to Preview Resume page.",
+  "loginTitle": "Login to Internova",
+  "password": "Password",
+  "passwordPlaceholder": "••••••••",
+  "loginButton": "Login",
+  "signupPrompt": "Don’t have an account?",
+  "signup": "Sign Up",
+  "loginSuccess": "Login successful (demo)",
+  "signupTitle": "Create an Account",
+  "namePlaceholder": "John Doe",
+  "confirmPassword": "Confirm Password",
+  "confirmPasswordPlaceholder": "••••••••",
+  "signupButton": "Sign Up",
+  "alreadyAccount": "Already have an account?",
+  "login": "Login",
+  "passwordMismatch": "Passwords do not match!",
+  "signupSuccess": "Account created successfully (demo)"
 
 }
