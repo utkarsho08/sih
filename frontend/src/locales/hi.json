@@ -47,6 +47,22 @@
   "objective": "करियर उद्देश्य",
   "objectivePlaceholder": "उदा. मैं मेहनत करना चाहता हूँ और अपने परिवार का समर्थन करना चाहता हूँ",
   "saveResume": "रिज़्यूमे सहेजें",
-  "resumeSavedAlert": "✅ रिज़्यूमे विवरण सहेज लिया गया! अब प्रिव्यू पेज पर जाएँ।"
+  "resumeSavedAlert": "✅ रिज़्यूमे विवरण सहेज लिया गया! अब प्रिव्यू पेज पर जाएँ।",
+  "loginTitle": "इंटरनोवा में लॉगिन करें",
+  "password": "पासवर्ड",
+  "passwordPlaceholder": "••••••••",
+  "loginButton": "लॉगिन करें",
+  "signupPrompt": "खाता नहीं है?",
+  "signup": "साइन अप करें",
+  "loginSuccess": "लॉगिन सफल (डेमो)",
+  "signupTitle": "खाता बनाएँ",
+  "namePlaceholder": "जॉन डो",
+  "confirmPassword": "पासवर्ड की पुष्टि करें",
+  "confirmPasswordPlaceholder": "••••••••",
+  "signupButton": "साइन अप करें",
+  "alreadyAccount": "पहले से खाता है?",
+  "login": "लॉगिन करें",
+  "passwordMismatch": "पासवर्ड मेल नहीं खाते!",
+  "signupSuccess": "खाता सफलतापूर्वक बनाया गया (डेमो)"
 
 }
