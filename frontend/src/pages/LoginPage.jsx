@@ -1,19 +1,29 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import API from "../services/api";
+import { AuthContext } from "../context/AuthContext";
 
 function LoginPage() {
   const { t } = useTranslation();
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login details:", { email, password });
-    alert(t("loginSuccess"));
-    navigate("/"); // redirect to home
+    try {
+      const res = await API.post("/auth/login", { email, password });
+      login(res.data.token, res.data.user);
+      alert(t("loginSuccess"));
+      navigate("/"); // redirect to home
+    } catch (err) {
+      console.error(err);
+      alert(err.response?.data?.msg || "Login failed");
+    }
   };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-8">
@@ -52,7 +62,6 @@ function LoginPage() {
             />
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-[#766ABB] text-white py-2 px-4 rounded-lg font-semibold hover:bg-[#6654a5] transition"
@@ -61,13 +70,9 @@ function LoginPage() {
           </button>
         </form>
 
-        {/* Signup Redirect */}
         <p className="text-center text-sm text-gray-600 mt-6">
           {t("signupPrompt")}{" "}
-          <a
-            href="/signup"
-            className="text-[#766ABB] font-semibold hover:underline"
-          >
+          <a href="/signup" className="text-[#766ABB] font-semibold hover:underline">
             {t("signup")}
           </a>
         </p>
