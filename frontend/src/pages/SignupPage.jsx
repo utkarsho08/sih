@@ -1,26 +1,38 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import API from "../services/api";
+import { AuthContext } from "../context/AuthContext";
 
 function SignupPage() {
   const { t } = useTranslation();
+  const { login } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (password !== confirmPassword) {
       alert(t("passwordMismatch"));
       return;
     }
 
-    console.log("Signup details:", { name, email, password });
-    alert(t("signupSuccess"));
-    navigate("/login"); // redirect to login
+    try {
+      const res = await API.post("/auth/signup", { name, email, password });
+
+      // Auto-login after signup
+      const loginRes = await API.post("/auth/login", { email, password });
+      login(loginRes.data.token, loginRes.data.user);
+
+      alert(t("signupSuccess"));
+      navigate("/"); // redirect to home
+    } catch (err) {
+      console.error(err);
+      alert(err.response?.data?.msg || "Signup failed");
+    }
   };
 
   return (
@@ -91,7 +103,6 @@ function SignupPage() {
             />
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-[#766ABB] text-white py-2 px-4 rounded-lg font-semibold hover:bg-[#6654a5] transition"
@@ -100,13 +111,9 @@ function SignupPage() {
           </button>
         </form>
 
-        {/* Redirect */}
         <p className="text-center text-sm text-gray-600 mt-6">
           {t("alreadyAccount")}{" "}
-          <a
-            href="/login"
-            className="text-[#766ABB] font-semibold hover:underline"
-          >
+          <a href="/login" className="text-[#766ABB] font-semibold hover:underline">
             {t("login")}
           </a>
         </p>

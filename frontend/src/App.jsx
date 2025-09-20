@@ -9,9 +9,12 @@ import InternshipPage from "./pages/InternshipPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 
-
 // i18next hook
 import { useTranslation } from "react-i18next";
+
+// Auth Context
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const { i18n } = useTranslation();
@@ -29,25 +32,43 @@ function App() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      {/* Navbar always visible */}
-      <Navbar changeLanguage={changeLanguage} currentLang={i18n.language} />
+    <AuthProvider>
+      <div className="bg-gray-50 min-h-screen">
+        {/* Navbar always visible */}
+        <Navbar changeLanguage={changeLanguage} currentLang={i18n.language} />
 
-    
+        {/* Page Content */}
+        <div className="p-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-      {/* Page Content */}
-      <div className="p-6">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Career" element={<Career />} />
-          <Route path="/form" element={<FormPage />} />
-          <Route path="/resume" element={<ResumePage />} />
-          <Route path="/internships" element={<InternshipPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-        </Routes>
+            {/* Protected Routes */}
+            <Route
+              path="/Career"
+              element={
+                <ProtectedRoute>
+                  <Career />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/resume"
+              element={
+                <ProtectedRoute>
+                  <ResumePage />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Public Routes */}
+            <Route path="/form" element={<FormPage />} />
+            <Route path="/internships" element={<InternshipPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </AuthProvider>
   );
 }
 
