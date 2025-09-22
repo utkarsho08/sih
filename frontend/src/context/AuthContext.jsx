@@ -1,27 +1,22 @@
 import { createContext, useState, useEffect } from "react";
 import API from "../services/api";
 
-// Create context
 export const AuthContext = createContext();
 
-// Provider component
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null); // currently logged-in user
-    const [loading, setLoading] = useState(true); // to handle initial load
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    // Fetch logged-in user on app start
+    // Load logged-in user on app start
     useEffect(() => {
         const fetchUser = async () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                setLoading(false);
+                return;
+            }
             try {
-                const token = localStorage.getItem("token");
-                if (!token) {
-                    setLoading(false);
-                    return;
-                }
-
-                const res = await API.get("/auth/me", {
-                    headers: { Authorization: `Bearer ${token}` },
-                });
+                const res = await API.get("/auth/me");
                 setUser(res.data);
             } catch (err) {
                 console.error("Failed to fetch user:", err);
@@ -30,17 +25,14 @@ export const AuthProvider = ({ children }) => {
                 setLoading(false);
             }
         };
-
         fetchUser();
     }, []);
 
-    // Login function
     const login = (token, userData) => {
         localStorage.setItem("token", token);
         setUser(userData);
     };
 
-    // Logout function
     const logout = () => {
         localStorage.removeItem("token");
         setUser(null);
