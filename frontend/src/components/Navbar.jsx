@@ -32,7 +32,7 @@ function Navbar() {
       <div className="navbar-links">
         <Link to="/">{t("Home")}</Link>
 
-        {/* Show protected links only if logged in */}
+        {/* Protected links */}
         {user && (
           <>
             <Link to="/form">{t("Upload Details")}</Link>

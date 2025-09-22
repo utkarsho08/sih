@@ -8,24 +8,19 @@ import ResumePage from "./pages/ResumePage";
 import InternshipPage from "./pages/InternshipPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
-
-// i18next hook
+import UserProfile from "./pages/UserProfile";
 import { useTranslation } from "react-i18next";
-
-// Auth Context
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const { i18n } = useTranslation();
 
-  // Load language from localStorage if available
   useEffect(() => {
     const savedLang = localStorage.getItem("language");
     if (savedLang) i18n.changeLanguage(savedLang);
   }, [i18n]);
 
-  // Function to change language
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
     localStorage.setItem("language", lang);
@@ -34,20 +29,36 @@ function App() {
   return (
     <AuthProvider>
       <div className="bg-gray-50 min-h-screen">
-        {/* Navbar always visible */}
         <Navbar changeLanguage={changeLanguage} currentLang={i18n.language} />
 
-        {/* Page Content */}
         <div className="p-6">
           <Routes>
-            <Route path="/" element={<Home />} />
+            {/* Public routes */}
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
 
-            {/* Protected Routes */}
+            {/* Protected routes */}
             <Route
-              path="/Career"
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/career"
               element={
                 <ProtectedRoute>
                   <Career />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/form"
+              element={
+                <ProtectedRoute>
+                  <FormPage />
                 </ProtectedRoute>
               }
             />
@@ -59,12 +70,22 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
-            {/* Public Routes */}
-            <Route path="/form" element={<FormPage />} />
-            <Route path="/internships" element={<InternshipPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
+            <Route
+              path="/internships"
+              element={
+                <ProtectedRoute>
+                  <InternshipPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <UserProfile />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
       </div>
