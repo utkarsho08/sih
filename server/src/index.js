@@ -11,13 +11,14 @@ const app = express();
 
 // Allowed origins (local + deployed frontend)
 const allowedOrigins = [
-  "http://localhost:5173",               // local dev
-  "https://sih-six-sand.vercel.app"     // replace with your actual Vercel domain
+  "http://localhost:5173",            // local dev
+  "https://sih-six-sand.vercel.app"  // deployed frontend
 ];
 
 // CORS middleware
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: (origin, callback) => {
+    // allow requests with no origin (Postman, mobile apps, etc.)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -27,12 +28,7 @@ app.use(cors({
   credentials: true,
 }));
 
-// Handle preflight OPTIONS requests
-app.options("*", cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
-
+// Parse JSON bodies
 app.use(express.json());
 
 // Routes
@@ -41,6 +37,7 @@ app.use("/api/auth", authRoutes);
 // Test route
 app.get("/api/test", (req, res) => res.send("✅ Server working"));
 
+// Connect to MongoDB and start server
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGO_URI)
