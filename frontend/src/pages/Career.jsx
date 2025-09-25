@@ -7,7 +7,7 @@ const adviceList = [
       "Learn how to highlight your skills, projects, and achievements to make your resume stand out to recruiters.",
   },
   {
-    title: "Cracking internship interviews",
+    title: "Cracking internship interviews.",
     content:
       "Discover strategies to prepare for common interview questions and make a strong impression.",
   },
