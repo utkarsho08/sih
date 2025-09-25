@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import API from "../services/api";
+import API from "../api/axios"; // ← Correct path to axios.js
 import { AuthContext } from "../context/AuthContext";
 
 function LoginPage() {
@@ -14,6 +14,7 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("Calling API at:", API.defaults.baseURL + "/auth/login");
       const res = await API.post("/auth/login", { email, password });
       login(res.data.token, res.data.user);
       alert(t("loginSuccess"));
